@@ -1,5 +1,6 @@
 import { Button } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
+import Listatareas from "./Listatareas";
 // rsc
 const FormularioTareas = () => {
   return (
@@ -16,6 +17,7 @@ const FormularioTareas = () => {
           <Button variant="info" className="mx-2" type="submit">Enviar</Button>
         </Form.Group>
       </Form>
+      <Listatareas></Listatareas>
     </section>
   );
 };
