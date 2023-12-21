@@ -1,10 +1,13 @@
 import { Button, Form } from "react-bootstrap";
+import { useState } from "react";
+import Listatareas from "./Listatareas";
 // import Form from "react-bootstrap/Form";
 // import Button from "react-bootstrap/Button";
 
-import Listatareas from "./Listatareas";
 // rsc
 const FormularioTareas = () => {
+  const [tarea, setTarea ] = useState('');
+
   return (
     <section>
       <Form>
@@ -15,6 +18,7 @@ const FormularioTareas = () => {
             placeholder="Ej: tarea 1"
             minLength={3}
             maxLength={50}
+            onChange={(e)=> setTarea(e.target.value) }
           />
           <Button variant="info" className="mx-2" type="submit">Enviar</Button>
         </Form.Group>
