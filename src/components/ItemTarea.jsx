@@ -1,11 +1,11 @@
-import { Button, ListGroup } from "react-bootstrap";
+import { ListGroup, Button } from "react-bootstrap";
 
 const ItemTarea = () => {
-    return (
-        <ListGroup.Item className="d-flex justify-content-between">
-          tarea 1
-        </ListGroup.Item>
-    );
+  return (
+    <ListGroup.Item className="d-flex justify-content-between">
+      tarea 1 <Button variant="danger">Borrar</Button>
+    </ListGroup.Item>
+  );
 };
 
 export default ItemTarea;
