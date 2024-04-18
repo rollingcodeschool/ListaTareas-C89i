@@ -31,7 +31,7 @@ setNombreTarea('');
           </Button>
         </Form.Group>
       </Form>
-      <Listatareas></Listatareas>
+      <Listatareas tareasProps={tareas}></Listatareas>
     </section>
   );
 };
