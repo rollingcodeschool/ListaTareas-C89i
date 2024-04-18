@@ -14,6 +14,12 @@ setTareas([...tareas, nombreTarea]); //operador spread
 setNombreTarea('');
 }
 
+const borrarTarea = (nombre)=>{
+  const tareasActualizadas = tareas.filter((itemTarea)=> itemTarea !== nombre )
+  // actualizar el state tareas
+  setTareas(tareasActualizadas);
+}
+
   return (
     <section>
       <Form onSubmit={handleSubmit}>
@@ -31,7 +37,7 @@ setNombreTarea('');
           </Button>
         </Form.Group>
       </Form>
-      <Listatareas tareasProps={tareas}></Listatareas>
+      <Listatareas tareasProps={tareas} borrarTarea={borrarTarea}></Listatareas>
     </section>
   );
 };
