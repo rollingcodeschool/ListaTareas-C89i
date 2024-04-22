@@ -1,24 +1,34 @@
 import { Button, Form } from "react-bootstrap";
 import Listatareas from "./Listatareas";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
 
 const FormularioTareas = () => {
   const [nombreTarea, setNombreTarea] = useState("");
- const [tareas, setTareas] = useState([])
+  const [tareas, setTareas] = useState( JSON.parse(localStorage.getItem('listaTareasKey')) || [] );
 
-const handleSubmit = (e)=>{
-  e.preventDefault();
-// tareas.push(nombreTarea)
-setTareas([...tareas, nombreTarea]); //operador spread
-//limpiar el input
-setNombreTarea('');
-}
+  // aqui agrego el codigo del ciclo de vida
+  useEffect(()=>{
+    //aqui agrear el codigo que quiero ejecutar en el montaje y act. del componente
+    console.log('estoy dentro del useEffect');
+    localStorage.setItem('listaTareasKey', JSON.stringify(tareas));
+  }, [tareas])
 
-const borrarTarea = (nombre)=>{
-  const tareasActualizadas = tareas.filter((itemTarea)=> itemTarea !== nombre )
-  // actualizar el state tareas
-  setTareas(tareasActualizadas);
-}
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // tareas.push(nombreTarea)
+    setTareas([...tareas, nombreTarea]); //operador spread
+    //limpiar el input
+    setNombreTarea("");
+  };
+
+  const borrarTarea = (nombre) => {
+    const tareasActualizadas = tareas.filter(
+      (itemTarea) => itemTarea !== nombre
+    );
+    // actualizar el state tareas
+    setTareas(tareasActualizadas);
+  };
 
   return (
     <section>
